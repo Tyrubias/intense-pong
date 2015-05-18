@@ -1,0 +1,82 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
+import javax.swing.*;
+import java.io.*;
+import javax.swing.Timer;
+import static java.lang.System.*;
+import java.util.*;
+import javax.imageio.*;
+import java.util.Random;
+import java.util.Arrays;
+
+//public class Arena
+public class Arena implements Intersect
+{
+	//variables
+	//private int arenaSize;
+	private int boundaryX;
+	private int boundaryY;
+	private Color arenaColor;
+	private int goalNet;
+
+//default constructor
+public Arena()
+{
+	//arenaSize = 0;
+	boundaryX = 1400;
+	boundaryY = 1000;
+	arenaColor = Color.white;
+	goalNet = 0;
+}
+
+//secondary constuctor
+public Arena(Color c, int x, int y, int net)
+{
+	this.arenaColor = c;
+	this.boundaryX = x;
+	this.boundaryY = y;
+	//this.arenaSize = size;
+	this.goalNet = net;
+}
+public Color getArenaColor()
+{
+	return arenaColor;
+}
+
+
+//collision detector class
+public void arenaHitDetector()
+{
+
+}
+
+public void edgeDetector()
+{
+
+}
+
+	//Method to draw Arena
+public void drawArena(Graphics g)
+{
+	g.setColor(arenaColor);
+	g.fillRect(0, 0, boundaryX, boundaryY);
+}
+
+public boolean intersect (int x1, int y1, int x2, int y2){
+	if( (x2 >= boundaryX) && (boundaryX >= x1) && (y2 >= boundaryY) && (boundaryY >= y1))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+public void hit(){
+	System.out.println("HIT!");
+}
+
+}// end Arena class
+
+
